@@ -5,6 +5,7 @@ def main():
     highestBid=1
     inn = input().split(',')
     price=int(inn[0])
+    info.append(price);
     for i in range(1,len(inn)-1,2):
         priceBeforeEachBid = price
         name, bid = inn[i:i+2]
@@ -24,11 +25,17 @@ def main():
                         highestBid=bid
                         highestBidder=name
                 else:
-                    if highestBidder != name:
-                        price=bid+1
+                    if bid == highestBid:
+                            price=bid
+                    else:
+                        if highestBidder != name:
+                            price=bid+1
         else:
             if highestBidder !='':
                 price=bid+1
+            else:
+                highestBidder=name
+                info.append([highestBidder, price])
 
         if priceBeforeEachBid != price or highestBidder != name:
             info.append([highestBidder, price])
@@ -36,7 +43,8 @@ def main():
         highestBidder=inn[1]
     # print(f'{highestBidder},{price}')
     print(info[0], end=',')
-    for name,price in info[1:]:
+    print(info[1], end=',')
+    for name,price in info[2:]:
         print(f'{name},{price}', end=',');
 
 
