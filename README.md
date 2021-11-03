@@ -4,4 +4,5 @@ The problems can be found [here](https://catcoder.codingcontest.org/)
 | Problem         | Language      |
 | --------------- |:-------------:|
 | [Auction Bidding](/auction_bidding) | Python3       |
+| [Fibonacci](/fibonacci) | Python3 |
 
