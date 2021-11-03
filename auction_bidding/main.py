@@ -5,8 +5,9 @@ def main():
     highestBid=1
     inn = input().split(',')
     price=int(inn[0])
+    buyNowPrice=int(inn[1])
     info.append(price);
-    for i in range(1,len(inn)-1,2):
+    for i in range(2,len(inn)-1,2):
         priceBeforeEachBid = price
         name, bid = inn[i:i+2]
         bid = int(bid)
@@ -36,6 +37,10 @@ def main():
             else:
                 highestBidder=name
                 info.append([highestBidder, price])
+
+        if price >= buyNowPrice and buyNowPrice !=0:
+            info.append([highestBidder, buyNowPrice])
+            break;
 
         if priceBeforeEachBid != price or highestBidder != name:
             info.append([highestBidder, price])
